@@ -48,8 +48,12 @@ public class Producto {
         }
     }
 
+    public String getTipo() {
+        return "Producto";
+    }
+
     public void mostrarInformacion() {
-        System.out.println("ID: " + id);
+        System.out.println("ID: " + id + " [" + getTipo() + "]");
         System.out.println("Nombre: " + nombre);
         System.out.println("Precio: $" + precio);
         System.out.println("Stock: " + stock);

@@ -32,6 +32,15 @@ public class ProductoService {
         return null;
     }
 
+    public Producto buscarPorNombre(String nombre) {
+        for (Producto producto : productos) {
+            if (producto.getNombre().equalsIgnoreCase(nombre)) {
+                return producto;
+            }
+        }
+        return null;
+    }
+
     public boolean eliminarProducto(int id) {
         Producto producto = buscarPorId(id);
 
