@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechLab Store</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<nav class="navbar">
+    <span class="brand">TechLab Store</span>
+    <div class="nav-links">
+        <a href="#" data-seccion="productos" class="active">Productos</a>
+        <a href="#" data-seccion="categorias">Categorías</a>
+        <a href="#" data-seccion="carrito">Carrito</a>
+        <a href="#" data-seccion="pedidos">Pedidos</a>
+    </div>
+</nav>
+
+<main>
+    <!-- ================= PRODUCTOS ================= -->
+    <section id="productos" class="seccion activa">
+        <div class="seccion-header">
+            <h2>Productos</h2>
+            <button id="btn-nuevo-producto" class="btn primario">+ Agregar Producto</button>
+        </div>
+
+        <table>
+            <thead>
+            <tr>
+                <th>ID</th><th>Nombre</th><th>Precio</th><th>Categoría</th><th>Stock</th><th></th>
+            </tr>
+            </thead>
+            <tbody id="tabla-productos"></tbody>
+        </table>
+
+        <!-- formulario de alta -->
+        <div id="form-producto" class="card oculto">
+            <h3>Nuevo producto</h3>
+            <div class="grid">
+                <label>Nombre <input id="p-nombre" type="text"></label>
+                <label>Precio <input id="p-precio" type="number" step="0.01"></label>
+                <label>Descripción <input id="p-descripcion" type="text"></label>
+                <label>Stock <input id="p-stock" type="number"></label>
+                <label>Categoría
+                    <select id="p-categoria"></select>
+                </label>
+                <label>URL Imagen <input id="p-imagen" type="text"></label>
+            </div>
+            <button id="btn-guardar-producto" class="btn primario">Guardar</button>
+            <p id="msg-producto" class="msg"></p>
+        </div>
+    </section>
+
+    <!-- ================= CATEGORIAS ================= -->
+    <section id="categorias" class="seccion">
+        <div class="seccion-header">
+            <h2>Categorías</h2>
+        </div>
+        <div class="card">
+            <label>Nueva categoría <input id="c-nombre" type="text"></label>
+            <button id="btn-guardar-categoria" class="btn primario">Agregar</button>
+        </div>
+        <ul id="lista-categorias" class="lista"></ul>
+    </section>
+
+    <!-- ================= CARRITO ================= -->
+    <section id="carrito" class="seccion">
+        <h2>Carrito</h2>
+        <div class="card">
+            <div class="grid">
+                <label>Producto
+                    <select id="car-producto"></select>
+                </label>
+                <label>Cantidad <input id="car-cantidad" type="number" value="1" min="1"></label>
+            </div>
+            <button id="btn-agregar-carrito" class="btn">Agregar al carrito</button>
+        </div>
+
+        <table>
+            <thead>
+            <tr><th>Producto</th><th>Cantidad</th><th>Precio</th><th>Subtotal</th></tr>
+            </thead>
+            <tbody id="tabla-carrito"></tbody>
+        </table>
+        <p class="total">Total: $<span id="carrito-total">0.00</span></p>
+        <button id="btn-realizar-pedido" class="btn primario">Realizar pedido</button>
+        <p id="msg-carrito" class="msg"></p>
+    </section>
+
+    <!-- ================= PEDIDOS ================= -->
+    <section id="pedidos" class="seccion">
+        <h2>Mis Pedidos</h2>
+        <div id="lista-pedidos"></div>
+    </section>
+</main>
+
+<script src="app.js"></script>
+</body>
+</html>
