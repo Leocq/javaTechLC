@@ -3,19 +3,59 @@
 API RESTful de e-commerce desarrollada con **Spring Boot** y **MySQL** (Proyecto Final).
 Incluye un frontend simple (HTML + CSS + JS) que consume la API.
 
+## Guía rápida (paso a paso)
+
+Solo necesitás tener **Java 21+** instalado. **No** hace falta instalar Maven.
+
+```bash
+# 1. Clonar el repositorio
+git clone https://github.com/Leocq/javaTechLC.git
+cd javaTechLC
+
+# 2. Cambiar a la rama DEV (ahí está el proyecto)
+git checkout DEV
+
+# 3. Ejecutar con el Maven Wrapper
+#    Windows (PowerShell):
+.\mvnw.cmd spring-boot:run
+#    Linux / Mac:
+./mvnw spring-boot:run
+```
+
+Cuando veas `Started EcommerceApplication`, abrí **http://localhost:8080** en el navegador.
+Para detener la app: `Ctrl + C`.
+
 ## Tecnologías
 
 - Java 21 (compatible con Java 24)
 - Spring Boot 3.5 (Web, Data JPA, Validation)
 - MySQL (base de datos principal) / H2 (base en memoria para pruebas)
-- Maven
+- Maven (incluye **Maven Wrapper**, no hace falta instalar Maven)
+
+## Requisitos
+
+- **Java JDK 21 o superior** instalado (verificar con `java -version`).
+- **NO** necesitás instalar Maven: el proyecto trae el **Maven Wrapper** (`mvnw`),
+  que descarga y usa Maven automáticamente.
+
+> El código está en la rama **`DEV`**. Después de clonar, ejecutá `git checkout DEV`.
 
 ## Cómo ejecutar
 
-### Opción A — H2 (en memoria, sin instalar nada)
+> **Importante:** usá siempre el wrapper, **no** el comando `mvn`.
+> - En **Windows (PowerShell)**: `.\mvnw.cmd ...`
+> - En **Linux / Mac**: `./mvnw ...`
 
+### Opción A — H2 (en memoria, sin instalar nada) — recomendada para probar
+
+Windows (PowerShell):
+```powershell
+.\mvnw.cmd spring-boot:run
+```
+
+Linux / Mac:
 ```bash
-mvn spring-boot:run
+./mvnw spring-boot:run
 ```
 
 Arranca con el perfil `h2` por defecto. Carga datos de ejemplo automáticamente.
@@ -30,8 +70,15 @@ Arranca con el perfil `h2` por defecto. Carga datos de ejemplo automáticamente.
    ```
 2. Ajustar usuario/password en `src/main/resources/application-mysql.properties`.
 3. Ejecutar con el perfil `mysql`:
+
+   Windows (PowerShell):
+   ```powershell
+   .\mvnw.cmd spring-boot:run "-Dspring-boot.run.profiles=mysql"
+   ```
+
+   Linux / Mac:
    ```bash
-   mvn spring-boot:run -Dspring-boot.run.profiles=mysql
+   ./mvnw spring-boot:run -Dspring-boot.run.profiles=mysql
    ```
 
 ## Endpoints principales
